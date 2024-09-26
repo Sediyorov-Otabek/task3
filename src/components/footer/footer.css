@@ -1,0 +1,27 @@
+.footer{
+    display: flex;
+}
+.then{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+@media (max-width:700px) {
+    .footer{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .col{
+        display: none;
+    }
+    .desc{
+        display: none;
+    }
+}
+
+.txt-linear {
+    background: linear-gradient(90deg, #EBE2F4 0%, #14FF00 100%);
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

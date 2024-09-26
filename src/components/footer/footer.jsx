@@ -1,195 +1,96 @@
-import { IoLocationOutline } from "react-icons/io5";
-import { FaHeadphonesAlt } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
-import { CiClock1 } from "react-icons/ci";
-import { BsTelephoneOutboundFill } from "react-icons/bs";
-import { FaFacebook } from "react-icons/fa";
-import { AiFillTwitterCircle } from "react-icons/ai";
-import { FaInstagram } from "react-icons/fa";
-import { AiFillYoutube } from "react-icons/ai";
-import { AiOutlinePinterest } from "react-icons/ai";
+import React from "react";
+import img from "../../assets/images/footer.png";
+import img1 from "../../assets/images/icon.png";
+import img2 from "../../assets/images/cc.png";
+import img3 from "../../assets/images/Group 15.png";
+import "./footer.css";
 const Footer = () => {
   return (
-    <div className="container mx-auto mt-10">
-      {/* <img className="mb-5" src={images} alt="" /> */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-4 mb-8">
-        <div className="flex flex-col gap-5">
-          <p className="text-[14px] text-start text-[#253D4E]">
-            Awesome grocery store websitetemplate
-          </p>
-          <div className="flex items-start md:flex lg:flex gap-[8px] ">
-            <button className="pt-[5px]">
-              <IoLocationOutline />
-            </button>
-            <p className="text-[#253D4E] text-[14px] text-start">
-              Address: 5171 W Campbell Ave
+    <>
+      <div className="bg-[#0D2612] w-full pt-[70px]">
+        <div className="container footer">
+          <div className="flex flex-col gap-3 then">
+            <img
+              className="w-[98px] h-[62px] object-contain"
+              src={img}
+              alt=""
+            />
+            <p className="lg:text-[20px] md:text-[19px] sm:text-[18px] text-[#EBE2F4] w-[200px]  leading-7 txt-linear">
+              START YOUR GAME WITH THE BEST
             </p>
           </div>
-          <div className="flex items-start md:flex lg:flex gap-[8px] ">
-            <button className="pt-[5px]">
-              <FaHeadphonesAlt />
-            </button>
-            <p className="text-[#253D4E] text-[14px] text-start">
-              undefined Kent, Utah 53127 United State
-            </p>
-          </div>
-          <div className="flex items-start md:flex lg:flex gap-[8px] ">
-            <button className="pt-[5px]">
-              <FaTelegramPlane />
-            </button>
-            <p className="text-[#253D4E] text-[14px] text-start">
-              Email:sale@Nest.com
-            </p>
-          </div>
-          <div className="flex items-start md:flex lg:flex gap-[8px] ">
-            <button className="pt-[5px]">
-              <CiClock1 />
-            </button>
-            <p className="text-[#253D4E] text-[14px] text-start">
-              Hours:10:00 - 18:00, Mon - Sat
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col gap-5">
-          <b className="text-[22px] text-[#253D4E] font-[700] text-start">
-            About Us
-          </b>
-          <p className="text-[14px] text-[#253D4E] text-start">
-            Delivery Information
-          </p>
-          <p className="text-[14px] text-[#253D4E] text-start">
-            Privacy Policy
-          </p>
-          <p className="text-[14px] text-[#253D4E] text-start">
-            Terms & Conditions
-          </p>
-          <p className="text-[14px] text-[#253D4E] text-start">Contact Us</p>
-          <p className="text-[14px] text-[#253D4E] text-start">
-            Support Center
-          </p>
-          <p className="text-[14px] text-[#253D4E] text-start">Careers</p>
-        </div>
-        <div className="lg:flex flex-col hidden gap-5">
-          <b className="text-[22px] text-[#253D4E] font-[700] text-start">
-            Account
-          </b>
-          <p className="text-[14px] text-[#253D4E] text-start">Sign In</p>
-          <p className="text-[14px] text-[#253D4E] text-start">My Wishlist</p>
-          <p className="text-[14px] text-[#253D4E] text-start">
-            Track My Order
-          </p>
-          <p className="text-[14px] text-[#253D4E] text-start">Help Ticket</p>
-          <p className="text-[14px] text-[#253D4E] text-start">
-            Shipping Details
-          </p>
-          <p className="text-[14px] text-[#253D4E] text-start">
-            Compare products
-          </p>
-        </div>
-        <div className="md:flex lg:flex  hidden flex-col gap-5">
-          <b className="text-[22px] text-[#253D4E] font-[700] text-start">
-            Corporate
-          </b>
-          <p className="text-[14px] text-[#253D4E] text-start">
-            Become a Vendor
-          </p>
-          <p className="text-[14px] text-[#253D4E] text-start">
-            Affiliate Program
-          </p>
-          <p className="text-[14px] text-[#253D4E] text-start">Farm Business</p>
-          <p className="text-[14px] text-[#253D4E] text-start">Help Ticket</p>
-          <p className="text-[14px] text-[#253D4E] text-start">Farm Careers</p>
-          <p className="text-[14px] text-[#253D4E] text-start">Our Suppliers</p>
-        </div>
-        <div className="md:flex lg:flex  hidden flex-col gap-5">
-          <b className="text-[22px] text-[#253D4E] font-[700] text-start">
-            Popular
-          </b>
-          <p className="text-[14px] text-[#253D4E] text-start">
-            Become a Vendor
-          </p>
-          <p className="text-[14px] text-[#253D4E] text-start">
-            Affiliate Program
-          </p>
-          <p className="text-[14px] text-[#253D4E] text-start">Farm Business</p>
-          <p className="text-[14px] text-[#253D4E] text-start">Help Ticket</p>
-          <p className="text-[14px] text-[#253D4E] text-start">Farm Careers</p>
-          <p className="text-[14px] text-[#253D4E] text-start">Cheese</p>
-        </div>
-        <div className="flex flex-col gap-5">
-          <b className="text-[22px] text-[#253D4E] font-[700] text-start">
-            Install App
-          </b>
-          <p className="text-[14px] text-[#253D4E] text-start">
-            From App Store or Google Play
-          </p>
-
-          <p className="text-[14px] text-[#253D4E] text-start">
-            Secured Payment Gateways
-          </p>
-        </div>
-      </div>
-      <hr />
-      <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3 items-start mt-[20px]">
-        <div className="flex flex-col gap-1">
-          <p className="text-[15px] text-[#0009] text-start">
-            © 2022, Nest - HTML Ecommerce Template
-          </p>
-          <p className="text-[12px] text-start text-[#0009]">
-            All rights reserved
-          </p>
-        </div>
-        <div className="flex gap-3">
-          <div className="flex gap-2 items-center">
-            <BsTelephoneOutboundFill className="text-[24px] text-[#3BB77E]" />
-            <div className="flex flex-col ">
-              <p className="text-[16px]  sm:text-[18px] md:text-[20px] lg:text-[24px] text-[#3BB77E] font-[700]">
-                1900 - 6666
+          <div className="grid lg:grid-cols-3 md:grid-cols-3 md:gap-[100px] sm:gap-[70px] gap-[20px] lg:gap-[130px] sm:grid-cols-2 grid-cols-1 lg:ml-[-100px]">
+            <div className="flex flex-col gap-[19px]">
+              <p className="lg:text-[22px] md:text-[20px] sm-text-[18px] text-[18px] font-[500] text-[#fff]">
+                Services
               </p>
-              <p className="text-[12px] text-[#7E7E7E] font-[500]">
-                Working 8:00 - 22:00
+              <p className="text-[15px] lg:text-[17px] sm:text-[16px] text-[#fff]">
+                Gift Card
+              </p>
+              <p className="text-[15px] lg:text-[17px] sm:text-[16px] text-[#fff]">
+                Mobile App
+              </p>
+              <p className="text-[15px] lg:text-[17px] sm:text-[16px] text-[#fff]">
+                Shipping & Delivery
+              </p>
+              <p className="text-[15px] lg:text-[17px] sm:text-[16px] text-[#fff]">
+                Account Signup
               </p>
             </div>
-          </div>
-          <div className="flex gap-2 items-center lg:mb-2 mb-2">
-            <BsTelephoneOutboundFill className="text-[24px] text-[#3BB77E]" />
-            <div className="flex flex-col ">
-              <p className="text-[16px]  sm:text-[18px] md:text-[20px] lg:text-[24px] text-[#3BB77E] font-[700]">
-                1900 - 8888
+            <div className="flex flex-col gap-[19px] col">
+              <p className="lg:text-[22px] md:text-[20px] sm-text-[18px] text-[18px] font-[500] text-[#fff]">
+                Help
               </p>
-              <p className="text-[12px] text-[#7E7E7E] font-[500]">
-                24/7 Support Center
+              <p className="text-[15px] lg:text-[17px] sm:text-[16px] text-[#fff]">
+                ShopCart Help
+              </p>
+              <p className="text-[15px] lg:text-[17px] sm:text-[16px] text-[#fff]">
+                Track Orders
+              </p>
+              <p className="text-[15px] lg:text-[17px] sm:text-[16px] text-[#fff]">
+                Feedback
+              </p>
+              <p className="text-[15px] lg:text-[17px] sm:text-[16px] text-[#fff]">
+                Contact Us
+              </p>
+              <p className="text-[15px] lg:text-[17px] sm:text-[16px] text-[#fff]">
+                Security & Fraud
+              </p>
+            </div>
+            <div className="flex flex-col gap-[19px] col">
+              <p className="lg:text-[22px] md:text-[20px] sm-text-[18px] text-[18px] font-[500] text-[#fff]">
+                About Us
+              </p>
+              <p className="text-[15px] lg:text-[17px] sm:text-[16px] text-[#fff]">
+                News & Blog
+              </p>
+              <p className="text-[15px] lg:text-[17px] sm:text-[16px] text-[#fff]">
+                Help
+              </p>
+              <p className="text-[15px] lg:text-[17px] sm:text-[16px] text-[#fff]">
+                Press Center
               </p>
             </div>
           </div>
         </div>
-        <div>
-          <div className="flex flex-col gap-2 items-starttext-[16px]  sm:text-[18px] md:text-[20px] lg: md:items-end lg:items-end">
-            <div className="flex gap-2 items-center">
-              <p className="text-[14px] font-[500] text-[#253D4E]">Follow Us</p>
-              <button className="w-[30px] h-[30px] bg-[#3BB77E] rounded-full">
-                <FaFacebook className="text-[18px] text-[#fff] m-auto" />
-              </button>
-              <button className="w-[30px] h-[30px] bg-[#3BB77E] rounded-full">
-                <AiFillTwitterCircle className="text-[18px] text-[#fff] m-auto" />
-              </button>
-              <button className="w-[30px] h-[30px] bg-[#3BB77E] rounded-full">
-                <FaInstagram className="text-[18px] text-[#fff] m-auto" />
-              </button>
-              <button className="w-[30px] h-[30px] bg-[#3BB77E] rounded-full">
-                <AiOutlinePinterest className="text-[18px] text-[#fff] m-auto" />
-              </button>
-              <button className="w-[30px] h-[30px] bg-[#3BB77E] rounded-full">
-                <AiFillYoutube className="text-[18px] text-[#fff] m-auto" />
-              </button>
+        <div className="container mt-6 pb-10">
+          <img className=" mb-10" src={img1} alt="" />
+          <hr />
+          <div className="flex items-center justify-between mt-[25px] desc">
+            <img src={img2} alt="" />
+            <div className="flex gap-4">
+              <img src={img3} alt="" />
+              <p className="text-[16px] text-[#fff]">Help Center</p>
             </div>
-            <p className="text-[14px] font-[400] text-[#7E7E7E] lg:text-end text-start">
-              Up to 15% discount on your first subscribe
+            <p className="text-[16px] text-[#fff]">Privacy & Policy</p>
+            <p className="text-[16px] text-[#fff]">Terms of Service</p>
+            <p className="text-[16px] text-[#fff]">
+              All rights reserved by GameGeek | 2023
             </p>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,117 +1,78 @@
-import { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./header.css";
-
-import { CiLocationOn } from "react-icons/ci";
+import { IoSearchOutline } from "react-icons/io5";
+import { AiOutlineUser } from "react-icons/ai";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { GiShoppingCart } from "react-icons/gi";
 import { RiMenu2Fill } from "react-icons/ri";
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useNavigate,
-  useSearchParams,
-} from "react-router-dom";
-import { Button, Form, Input } from "antd";
-const { Search } = Input;
+import navbar from "../../assets/images/navbar.png";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const [searchParams] = useSearchParams();
-  const form = useRef(null);
-  const navigete = useNavigate();
-  const onFinish = (values) => {
-    navigete(`/search?q=${values.search}`);
-    console.log(values);
-  };
+  const cart = useSelector((state) => state.cart.value);
+  console.log(cart);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <>
-      <div className="container mx-auto flex items-center ">
-        <div className=" flex items-center justify-between w-full py-4">
-          <Link to={"/"} className="block ">
+    <div className="sticky top-0 z-10 bg-white">
+      <div className="container mx-auto ">
+        <div className=" flex items-center  gap-[69px] justify-between mt-5 ">
+          <Link to={"/"}>
             <img
-              className="w-[100px] object-cover h-[50px]"
-              src="https://t4.ftcdn.net/jpg/04/93/63/99/360_F_493639968_ZqpYbW6DqzOqIMCIUbnrYdJVVJnDDTvZ.jpg"
+              className="w-[130px] h-[50px] object-contain "
+              src={navbar}
               alt=""
             />
           </Link>
-          <Form
-            onFinish={onFinish}
-            ref={form}
-            initialValues={{
-              search: searchParams.get("q"),
-            }}
-            className="w-[60%] pt-5"
-          >
-            <Form.Item
-              className="w-full"
-              name="search"
-              rules={[
-                {
-                  required: "true",
-                  message: "Please input your search!",
-                },
-              ]}
-            >
-              <Search
-                placeholder="input search text"
-                enterButton={<Button htmlType="submit">Search</Button>}
-              />
-            </Form.Item>
-          </Form>
 
-          <div className=" rounded-[5px]  hidden gap-3 py-[6px] px-[8px] sm:flex md:flex lg:flex ">
-            <button>
-              <CiLocationOn />
-            </button>
-            <select
-              className="border-none outline-none text-[14px] text-[#3BB77E]  "
-              name=""
-              id=""
-            >
-              <option value="">Your Location</option>
-              <option value="">Toshkent</option>
-              <option value="">Samarqand</option>
-              <option value="">Namangan</option>
-              <option value="">Andijon</option>
-              <option value="">Fargona</option>
-            </select>
-          </div>
           <div
             className={`nav__collect flex  gap-3 ${isMenuOpen ? "show" : ""}`}
           >
-            <div className="flex items-center gap-4 navbar navbar__collection">
+            <div className="flex items-center gap-[40px] navbar navbar__collection">
               <NavLink
-                className={
-                  "text-[16px] font-[400] text-[#fff] lg:text-[#7e7e7e] navbar__collection"
-                }
-                to={"/cart"}
+                className={"text-[16px] font-[500] text-[#0D2612]  "}
+                to={"/products"}
               >
-                Cart
+                Products
               </NavLink>
-              <NavLink
-                className={
-                  "text-[16px] font-[400] text-[#fff] lg:text-[#7e7e7e] navbar__collection"
-                }
-                to={"/profile"}
-              >
-                <img
-                  className="w-[50px] object-contain rounded-full"
-                  src="https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg"
-                  alt=""
-                />
+
+              <NavLink className={"text-[16px] font-[500] text-[#0D2612]  "}>
+                Brands
+              </NavLink>
+
+              <NavLink className={"text-[16px] font-[500] text-[#0D2612]  "}>
+                What’s new
+              </NavLink>
+
+              <NavLink className={"text-[16px] font-[500] text-[#0D2612]  "}>
+                Sales
+              </NavLink>
+              <NavLink className={"text-[16px] font-[500] text-[#0D2612]  "}>
+                Help
+              </NavLink>
+              <NavLink className={"text-[16px] font-[500] text-[#0D2612]  "}>
+                About
               </NavLink>
             </div>
           </div>
-        </div>
-        <div onClick={toggleMenu} className="navbar__menu ml-5">
-          <RiMenu2Fill />
+          <div className="flex gap-2 lg:gap-5 items-center ">
+            <IoSearchOutline className="text-[18px]" />
+            <AiOutlineUser className="text-[#000] text-[18px]" />
+            <Link to={"/cartProducts"}>
+              <GiShoppingCart className="text-[#000] text-[18px]" />
+            </Link>
+            <sup className="">{cart.length}</sup>
+          </div>
+          <div onClick={toggleMenu} className="navbar__menu">
+            <RiMenu2Fill />
+          </div>
         </div>
       </div>
-      <Outlet />
-    </>
+    </div>
   );
 };
 

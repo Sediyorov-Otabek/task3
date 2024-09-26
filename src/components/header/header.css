@@ -3,11 +3,11 @@
 }
 @media (max-width:990px) {
     .nav__collect {
-        display: none;
+        @apply shadow-2xl bg-white;
         position: absolute;
         top: 0;
         left: -500px;
-        background-color: #afa5a5d0;
+        /* background-color: #afa5a5d0; */
         width: 60%;
         padding: 20px;
         height: 100%;

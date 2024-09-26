@@ -1,31 +1,33 @@
 import { createApi, fetchBaseQuery, retry } from "@reduxjs/toolkit/query/react";
-import { signOut } from "../slices/authSlices";
+// import { logout } from '../slices/authSlice';
+
 const baseQuery = async (args, api, extraOptions) => {
   const { dispatch } = api;
-  const rawBaseQuary = fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_API_BASE_URL,
+  const rawBaseQuery = fetchBaseQuery({
+    baseUrl: "https://headphones-server.onrender.com", // o'zgaradi
     prepareHeaders: (headers) => {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("x-auth-token"); // o'zgaradi
       if (token) {
-        headers.set("Authorization", `Bearar ${token}`);
+        headers.set("Authorization", `Bearer ${token}`);
       }
       return headers;
     },
   });
-  const response = await rawBaseQuary(args, api, extraOptions);
-  if (response.error) {
-    const { status } = response.error;
+  const result = await rawBaseQuery(args, api, extraOptions);
+  if (result.error) {
+    const { status } = result.error;
     if (status === 401 || status === 403) {
       console.error("Unauthorized access - Redirecting to login...");
-      dispatch(signOut());
+      // dispatch(logout())
     }
   }
-  return response;
+  return result;
 };
-const fetchBaseQueryWithRetry = retry(baseQuery, { maxRetries: 1 });
+const baseQueryWithRetry = retry(baseQuery, { maxRetries: 1 });
+
 export const api = createApi({
-  reducerPath: "api",
-  baseQuery: fetchBaseQueryWithRetry,
-  tagTypes: ["CARS"],
+  reducerPath: "myApi",
+  baseQuery: baseQueryWithRetry,
+  tagTypes: [], // o'zgaradi
   endpoints: () => ({}),
 });

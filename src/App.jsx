@@ -1,32 +1,30 @@
-import { useEffect } from "react";
-import { useCheckUserQueryQuery } from "./redux/api/authApi";
-import RouteController from "./routes";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { setUser } from "./redux/slices/authSlices";
+import { Route, Routes } from "react-router-dom";
+
+import Layout from "./layout/layout";
+import Home from "./pages/home/Home";
+import ProductsSection from "./components/products-section/Products-section";
+import { useGetCategoryQuery } from "./redux/api/categoreyApi";
+import Hero from "./components/hero/Hero";
+import SinglProdutc from "./pages/singlProdutc/Singl-Produtc";
+import Cartproducts from "./components/cartproducts/Cartproducts";
+import { useSelector } from "react-redux";
 
 function App() {
-  const location = useLocation();
-  const navigete = useNavigate();
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth.user);
-  const { data, isError, isLoading, isSuccess } = useCheckUserQueryQuery();
-  useEffect(() => {
-    if (isError) {
-      if (
-        !(location.pathname === "/auth/sign-up") &&
-        !(location.pathname === "/auth/sign-in") &&
-        !(location.pathname === "/auth/otp")
-      ) {
-        navigete(`/auth/sign-in?callback-url=${location.pathname}`);
-      }
-    }
-    if (isSuccess) {
-      dispatch(setUser(data.payload));
-      console.log(user);
-    }
-  }, [isError, isSuccess, user]);
-  return <>{isLoading ? "Loadng. . ." : <RouteController />}</>;
+  const cart = useSelector((state) => state.cart.value);
+
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+
+          <Route path="/products" element={<ProductsSection />} />
+          <Route path="products/:id" element={<SinglProdutc />} />
+          <Route path="/cartProducts" element={<Cartproducts data={cart} />} />
+        </Route>
+      </Routes>
+    </>
+  );
 }
 
 export default App;
